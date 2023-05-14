@@ -12,7 +12,7 @@ public class QuickSort {
         int pivot =left;
         while(i < j){
              while(i <= right && arr[i]<=arr[pivot])i++;
-             while(j > left && arr[j]>arr[pivot]) j--;
+             while(j >= left && arr[j]>arr[pivot]) j--;
             if(i<j)swap(arr, i, j); 
         }
         swap(arr, pivot, j);
@@ -23,7 +23,7 @@ public class QuickSort {
         int pivot =right;
         while(i < j){
              while(i <= right && arr[i]<arr[pivot])i++;
-             while(j > left && arr[j]>=arr[pivot]) j--;
+             while(j >= left && arr[j]>=arr[pivot]) j--;
             if(i<j)swap(arr, i, j); 
         }
         swap(arr, pivot, i);
@@ -31,7 +31,7 @@ public class QuickSort {
     }
     public void quickSort(int arr[],int left,int rigth){
         if(left >= rigth)return;
-        int pivot = findpivotRight(arr,left,rigth);
+        int pivot = findpivotLeft(arr,left,rigth);
         quickSort(arr, left, pivot-1);
         quickSort(arr, pivot+1, rigth);
     }

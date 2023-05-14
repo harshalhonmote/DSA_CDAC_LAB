@@ -18,7 +18,7 @@ public class MergeSort {
         }
     }
    public void mergeSort(int arr[],int left,int right){
-        if(left==right)return;
+        if(left==right)return;//At end one element -one element is always sorted
         int mid = (left+right)/2;
         mergeSort(arr, left, mid);
         mergeSort(arr, mid+1, right);

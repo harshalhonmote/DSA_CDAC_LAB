@@ -1,5 +1,7 @@
 package DSALAB.src.SinglyLL;
 
+import javax.swing.plaf.nimbus.NimbusLookAndFeel;
+
 public class SinglyList {
     //Class Node
     static class Node{
@@ -99,21 +101,36 @@ public class SinglyList {
         }
     }
     //reverse LL
+    public Node reverseLLRev(Node curr,Node prev,Node temp){
+        if(curr == null){
+            //temp = prev;
+            return prev;
+        }
+        Node tempp =reverseLLRev(curr.next,curr,temp);
+        curr.next=prev;
+      
+        return tempp;
+    }
+    public void reverseLLRev(){
+        Node temp =reverseLLRev(head,null,null);
+        while(temp!=null){
+            System.out.print(temp.data+"->");
+            temp = temp.next;
+        }
+    }
     public void reverseLL(){
         if(isEmpty()){
             System.out.println("List is Empty");
             return;
         } 
         Node curr = head;
-        Node next=head.next,prev=null;
-        while(curr.next != null){
+        Node next=null,prev=null;
+        while(curr != null){
+             next = curr.next;
              curr.next = prev;
-             prev = curr;
-             curr = next;
-             next = next.next;
+             prev=curr;
+             curr=next;
         }
-        curr.next = prev;
-        prev = curr;
         head = prev;
         Node temp = head;
         while(temp != null){
@@ -130,12 +147,14 @@ public class SinglyList {
         return;
     } 
     else{
-        Node first=head,second=head;
-        while(second.next != null && second.next.next != null){
-            first = first.next;
-            second = second.next.next;
+        Node fast=head,slow=head;
+        //fast==null->for Even No. of node
+        //fast.next==null->for Odd No. of node
+        while(fast != null && fast.next != null){
+            slow = slow.next;
+            fast = fast.next.next;
         }
-        System.out.println("Middle Element: "+ first.data);
+        System.out.println("Middle Element: "+ slow.data);
     }
    }
    //?? Sort LL
