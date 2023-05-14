@@ -242,7 +242,6 @@ public class Bst {
             // If there is no right child
             // or right child is the one that we recently visited
             // it means we have traversed all the nodes of stack.peek()
-            
             if(stack.peek().right == null  || stack.peek().right == prev) {
                 // we will update the prev node
                 prev = stack.pop();
