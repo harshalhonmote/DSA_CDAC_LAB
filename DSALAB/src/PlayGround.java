@@ -60,6 +60,15 @@ public class PlayGround {
     
        System.out.println("values = "+get_values);
        //String s = String.valueOf(11);
-
+//-----------------------------------------------------------------------------------
+        int total = IntStream.of(1,3,2,4,5).sum();
+        //duration----------------
+        Instant before = Instant.now();
+         //some code
+        Instant after = Instant.now();
+        Duration d = Duration.between(before,after);
+        System.out.println(d.toMillis());
+        //-------------------------
+        // return User.findAll().stream.map(UserDto::new).collect(toList());
     }
 }
