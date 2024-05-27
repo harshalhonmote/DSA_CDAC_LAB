@@ -146,7 +146,7 @@ public class PlayGround {
         //                );
 
 
-
+       //companyList.stream().collect(Collectors.toMap(Company::getName,company -> company.getCity().getName()));
 
 
     }
