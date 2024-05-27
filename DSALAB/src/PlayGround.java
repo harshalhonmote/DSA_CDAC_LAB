@@ -132,7 +132,18 @@ public class PlayGround {
         }*/
         return sortedMap;
     }//--------------------------------------------------------------------------
-
+/----------------------Stream Map ----------------------------------
+        //--- On List of String.----
+        //Map<String, Integer>map = strList.stream().collect(Collectors.groupingBy(Function.identity(),Collectors.counting()));
+        //---- On List of Object----
+        //Map<String,List<Person>>map = personList.stream().collect(Collectors.groupingBy(Person::getName));
+        //  Map<String, Integer> sum = items.stream().collect(Collectors.groupingBy(Item::getName, Collectors.summingInt(Item::getQty)));
+       // Map<BigDecimal, Set<String>> result =
+        //                items.stream().collect(
+        //                        Collectors.groupingBy(Item::getPrice,
+        //                                Collectors.mapping(Item::getName, Collectors.toSet())
+        //                        )
+        //                );
 
 
 
