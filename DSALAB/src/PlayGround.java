@@ -148,6 +148,74 @@ public class PlayGround {
 
        //companyList.stream().collect(Collectors.toMap(Company::getName,company -> company.getCity().getName()));
 
+//------------------------------------------------------------------------
+package com.ljr.practice;
 
+import java.util.Arrays;
+import java.util.Optional;
+import java.util.Scanner;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
+import java.util.stream.Stream;
+
+public class Calculator {
+    public int add(String str){
+        //check string is Empty or not.
+//        Optional<String> s = Optional.ofNullable(str);
+//        if(s.isEmpty())return 0;
+        
+        if(str == null || str.isEmpty() )return 0;
+
+        //str = str.replace('\n', ',').trim();
+
+        //splitting the string "," and "\n".
+        //String[] splitArray = str.split("[,\n ]+");
+        //check after splitting array is empty or not.
+       // if(splitArray.length==0)return 0;
+
+        //calculate sum using stream.(number<1001)
+//        int addition = Arrays.stream(splitArray)
+//                       .map(s -> {
+//                          try{
+//                              return  Integer.parseInt(s);
+//                          }catch (NumberFormatException ex){
+//                              throw  new NumberFormatException("String should not contain other than , \n Char.");
+//                          }
+//                       })
+//                       .filter(digit->digit<1001)
+//                       .reduce(0,Integer::sum);
+
+        //------------- Using Pattern -----------------------------
+
+        String ptr ="\\d+";
+        Matcher matcher = Pattern.compile(ptr).matcher(str);
+        int addition=0;
+        while(matcher.find()){
+            int value = Integer.parseInt(matcher.group());
+            if(value < 1001){
+                addition = addition + value;
+            }
+            //System.out.println(matcher.group());
+        }
+
+        //-------------------------------------------------------
+
+        return addition;
+    }
+    public static void main(String[] args) {
+        //Create Scanner Object.
+        Scanner sc = new Scanner(System.in);
+        //Create Calculator class Object.
+        Calculator c = new Calculator();
+        //String Input.
+        String str = sc.next();
+
+
+        System.out.println(c.add(str));
+
+    }
+}
+
+//---------------------------------------------------------------------
     }
 }
